@@ -1,4 +1,6 @@
 #about {
+  margin-top: 2.375rem;
+
   & ul {
     display: grid;
     list-style: none;

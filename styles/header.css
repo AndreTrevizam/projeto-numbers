@@ -30,6 +30,8 @@ header {
   header {
     & .logo {
       justify-content: start;
+      margin-top: 4.75rem;
+      margin-bottom: 5.563rem;
     }
     
     & .title {
