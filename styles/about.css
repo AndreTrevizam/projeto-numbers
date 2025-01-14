@@ -1,0 +1,30 @@
+#about {
+  & ul {
+    display: grid;
+    list-style: none;
+    gap: 2.25rem;
+  }
+
+  & ul li {
+    display: inline-flexbox; /* Habilita o layout flexbox */
+    align-items: center; /* Alinha o texto e a imagem verticalmente */
+    gap: .5rem; /* Espaço entre o marcador e o texto */
+
+    & span {
+      color: var(--content-brand);
+      font: var(--ph-md);
+    }
+
+    & p {
+      color: var(--content-secondary);
+      font: var(--ph-sm);
+    }
+  }
+
+  .marker {
+    width: 20px;
+    height: 20px;
+    background-image: url(../assets/icons/comment.svg); /* URL da imagem */
+    background-size: cover; /* Ajusta a imagem ao tamanho do elemento */
+  }
+}

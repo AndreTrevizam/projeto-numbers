@@ -27,15 +27,7 @@ header {
 }
 
 @media (width >= 80em) {
-  aside{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  
   header {
-    display: grid;
-    justify-content: start;
-
     & .logo {
       justify-content: start;
     }
