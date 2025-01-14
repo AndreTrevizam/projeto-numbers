@@ -1,0 +1,49 @@
+header {
+  & .logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.75rem;
+    margin-bottom: 2.875rem;
+  }
+
+  & .title {
+    display: grid;
+    gap: .5rem;
+
+    & span {
+      text-transform: uppercase;
+      font: var(--overline);
+      background: -webkit-linear-gradient(var(--gradient-content));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    & h1 {
+      text-transform: uppercase;
+      color: var(--content-primary);
+      font: var(--title-md);
+    }
+  }
+}
+
+@media (width >= 80em) {
+  aside{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  header {
+    display: grid;
+    justify-content: start;
+
+    & .logo {
+      justify-content: start;
+    }
+    
+    & .title {
+      & h1 {
+        font: var(--title-lg);
+      }
+    }
+  }
+}
