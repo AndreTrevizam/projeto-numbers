@@ -8,8 +8,7 @@
   }
 
   & ul li {
-    display: inline-flexbox; /* Habilita o layout flexbox */
-    align-items: center; /* Alinha o texto e a imagem verticalmente */
+    display: flex; /* Habilita o layout flexbox */
     gap: .5rem; /* Espaço entre o marcador e o texto */
 
     & span {
