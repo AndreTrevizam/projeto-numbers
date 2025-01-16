@@ -14,11 +14,17 @@
     }
   }
 
+  & .input-numbers {
+    display: flex;
+    gap: .75rem;
+  }
+
   & .drawer-options {
     margin-top: 2.5rem;
 
     & form {
       display: flex;
+      flex-direction: column;
       gap: .75rem;
     }
   }
