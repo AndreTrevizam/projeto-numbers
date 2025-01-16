@@ -1,5 +1,4 @@
 #about {
-  margin-top: 2.375rem;
 
   & ul {
     display: grid;
@@ -27,5 +26,12 @@
     height: 20px;
     background-image: url(../assets/icons/comment.svg); /* URL da imagem */
     background-size: cover; /* Ajusta a imagem ao tamanho do elemento */
+  }
+}
+
+@media (width >= 80em) {
+  #about {
+    margin-top: 2.375rem;
+    max-width: 450px;
   }
 }

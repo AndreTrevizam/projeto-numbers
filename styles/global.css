@@ -56,5 +56,24 @@
 }
 
 body {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
+}
+
+
+
+@media (width >= 80em) {
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6.75rem;
+  }
+
+  aside {
+    display: grid;
+    justify-content: flex-end;
+  }
+
+  main {
+    max-width: 30.125rem;
+  }
 }

@@ -10,41 +10,70 @@
   <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-  <aside>
-    <header>
-      <div class="container px-base">
-        <div class="logo">
-          <img src="assets/logo.svg" alt="">
+  <div id="app">
+    <aside>
+      <header>
+        <div class="container">
+          <div class="logo">
+            <img src="assets/logo.svg" alt="">
+          </div>
+    
+          <div class="title">
+            <span>Online - gratuito</span>
+            <h1>Sorteador<br>de números</h1>
+          </div>
+        </div>
+      </header>
+  
+      <section id="about" class="desktop-only">
+        <div class="container">
+          <ul>
+            <li>
+              <div class="marker"></div>
+              <div>
+                <span>Como funciona o sorteador de números</span>
+                <p>O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.</p>
+              </div>
+            </li>
+  
+            <li>
+              <div class="marker"></div>
+              <div>
+                <span>Posso escolher o intervalo dos números?</span>
+                <p>Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </aside>
+
+    <main id="drawer">
+      <div class="container">
+
+        <div id="draw-info">
+          <h3>Quero sortear:</h3>
+          <p>Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</p>
         </div>
   
-        <div class="title">
-          <span>Online - gratuito</span>
-          <h1>Sorteador<br>de números</h1>
+        <div class="drawer-options">
+          <div class="input-wrapper">
+            <label for="">Números</label>
+            <input type="text" name="how-many-numbers">
+          </div>
+  
+          <div class="input-wrapper">
+            <label for="">De</label>
+            <input type="text" name="how-many-numbers">
+          </div>
+  
+          <div class="input-wrapper">
+            <label for="">De</label>
+            <input type="text" name="how-many-numbers">
+          </div>
         </div>
       </div>
-    </header>
-
-    <section id="about">
-      <div class="container px-base">
-        <ul>
-          <li>
-            <div class="marker"></div>
-            <div>
-              <span>Como funciona o sorteador de números</span>
-              <p>O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.</p>
-            </div>
-          </li>
-
-          <li>
-            <div class="marker"></div>
-            <div>
-              <span>Posso escolher o intervalo dos números?</span>
-              <p>Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </aside>
+    </main>
+  </div>
 </body>
 </html>
