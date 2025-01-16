@@ -15,9 +15,12 @@
   }
 
   & .drawer-options {
-    display: flex;
-    gap: .75rem;
     margin-top: 2.5rem;
+
+    & form {
+      display: flex;
+      gap: .75rem;
+    }
   }
 
   & .switch-wrapper {
