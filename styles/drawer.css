@@ -33,7 +33,9 @@
 
   & .button-wrapper {
     margin-top: 2.5rem;
+  }
 
+  & .btn {
     & button {
       width: 100%;
       border-radius: .5rem;
@@ -88,6 +90,39 @@
     border: 1px solid transparent;
     background: linear-gradient(#24222E, #24222E) padding-box,
               linear-gradient(to right, var(--gradient-border)) border-box;
+  }
+}
+
+.draw-result {
+
+  & .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    & h3 {
+      color: var(--content-primary);
+      font: var(--label-md);
+      text-transform: uppercase;
+    }
+
+    & span {
+      color: var(--content-secondary);
+      font: var(--overline);
+      text-transform: uppercase;
+    }
+  }
+
+  & .numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-brand);
+    font-family: var(--ff-roboto-mono);
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.5;
   }
 }
 
