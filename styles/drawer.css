@@ -1,6 +1,6 @@
 #drawer {
   & #draw-info {
-    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
 
     & h3 {
       color: var(--content-primary);
@@ -103,7 +103,7 @@
 }
 
 .draw-result {
-
+  margin-top: 2.5rem;
   & .title {
     display: flex;
     align-items: center;
@@ -132,6 +132,12 @@
     font-size: 3rem;
     font-weight: bold;
     line-height: 1.5;
+    gap: 1.5rem;
+    
+    & .number {
+      display: flex;
+      gap: 1rem;
+    }
   }
 }
 

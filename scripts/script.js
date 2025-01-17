@@ -3,7 +3,10 @@ const numberQuantity = document.getElementById("how-many-numbers")
 const secondInput = document.getElementById("start")
 const thirdInput = document.getElementById("end")
 const switcher = document.getElementById("checkbox")
+const drawerOptions = document.querySelector(".drawer-options")
 
+const randomNumbersSet = new Set()
+const randomNumbers = []
 
 // Captura os inputs e só aceita números
 numberQuantity.oninput = () => {
@@ -51,21 +54,92 @@ function getNumbers(numberQuantity, secondInput, thirdInput) {
 
   try {
     if (switcher.checked) {
-      const randomNumbersSet = new Set()
+      
 
       while (randomNumbersSet.size < quantity) {
         const num = generateRandomNumbers(min, max)
         randomNumbersSet.add(num)
       }
       console.log(randomNumbersSet)
+
     } else {
-      const randomNumbers = []
+
       for (let i = 0; i < quantity; i++) {
         randomNumbers.push(generateRandomNumbers(min, max));
       }
+      
       console.log(randomNumbers)
     }
     
+    // Assim que os numeros são gerados, esconde a div drawer-options
+    removeDrawerOptions()
+
+  } catch (error) {
+    console.log(error)
+    alert("Houve um erro. Tente novamente mais tarde.")
+  }
+}
+
+function removeDrawerOptions() {
+  drawerOptions.style.display = 'none'
+}
+
+function showResult() {
+  // Seleciono a div que o resultado irá aparecer
+  const drawerContainer = document.getElementById("drawer-container")
+
+  try {
+    // crio a div draw-result
+    const resultsDiv = document.createElement("div")
+    resultsDiv.classList.add("draw-result")
+
+    // crio a div title
+    const divTitle = document.createElement("div")
+    divTitle.classList.add("title")
+
+    // crio o elemento h3 para coloca-lo dentro da div title
+    const heading = document.createElement("h3")
+    heading.textContent = "Resultado do sorteio"
+
+    // crio o elemento span
+    const resultSpan = document.createElement("span")
+    resultSpan.textContent = `1º resultado`
+
+    // crio a div numbers
+    const numbersDiv = document.createElement("div")
+    numbersDiv.classList.add("numbers")
+
+    if (switcher.checked) {
+      // Caso use o conjunto de números
+      randomNumbersSet.forEach((num) => {
+        const numDiv = document.createElement("div"); // Cria uma nova div para cada número
+        numDiv.classList.add("number"); // Adiciona a classe 'number'
+        numDiv.textContent = num; // Define o número como conteúdo da div
+        numbersDiv.appendChild(numDiv); // Adiciona a div ao container
+      });
+    } else {
+      // Caso use o vetor de números
+      randomNumbers.forEach((num) => {
+        const numDiv = document.createElement("div"); // Cria uma nova div para cada número
+        numDiv.classList.add("number"); // Adiciona a classe 'number'
+        numDiv.textContent = num; // Define o número como conteúdo da div
+        numbersDiv.appendChild(numDiv); // Adiciona a div ao container
+      });
+    }
+    
+
+    // coloca os elementos na divTitle
+    divTitle.append(heading, resultSpan)
+
+    // coloco a div dentro da div principal
+    resultsDiv.append(divTitle, numbersDiv)
+
+    // mostro o elemento na tela
+    document.body.appendChild(resultsDiv)
+
+    // Insere o "drawerContainer" no local específico (após o comentário)
+    const drawerOptions = document.querySelector('.drawer-options');
+    drawerContainer.insertBefore(resultsDiv, drawerOptions.nextSibling);
 
   } catch (error) {
     console.log(error)
@@ -78,4 +152,5 @@ form.onsubmit = (event) => {
   event.preventDefault()
 
   getNumbers(numberQuantity, secondInput, thirdInput)
+  showResult()
 }
