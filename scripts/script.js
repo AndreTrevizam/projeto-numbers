@@ -8,6 +8,9 @@ const drawerOptions = document.querySelector(".drawer-options")
 const randomNumbersSet = new Set()
 const randomNumbers = []
 
+// Contador para quantos sorteios acontecerem
+let drawCount = 0
+
 // Captura os inputs e só aceita números
 numberQuantity.oninput = () => {
   let value = numberQuantity.value.replace(/\D/g, "")
@@ -43,46 +46,44 @@ function getNumbers(numberQuantity, secondInput, thirdInput) {
   const quantity = parseInt(numberQuantityInput, 10)
 
   if (isNaN(min) || isNaN(max) || isNaN(quantity) || quantity <= 0) {
-    alert("Por favor, insira valores válidos!")
-    return
+    throw new Error("Por favor, insira valores válidos!")
   }
 
   if (min > max) {
-    alert("O valor mínimo não pode ser maior que o valor máximo!");
-    return; // Encerra a execução da função se min for maior que max
+    throw new Error("O valor mínimo não pode ser maior que o valor máximo!")
   }
+
+  randomNumbersSet.clear();
+  randomNumbers.length = 0;
 
   try {
     if (switcher.checked) {
-      
-
       while (randomNumbersSet.size < quantity) {
         const num = generateRandomNumbers(min, max)
         randomNumbersSet.add(num)
       }
-      console.log(randomNumbersSet)
-
     } else {
-
       for (let i = 0; i < quantity; i++) {
         randomNumbers.push(generateRandomNumbers(min, max));
       }
-      
-      console.log(randomNumbers)
     }
     
     // Assim que os numeros são gerados, esconde a div drawer-options
     removeDrawerOptions()
 
   } catch (error) {
-    console.log(error)
-    alert("Houve um erro. Tente novamente mais tarde.")
+    throw new Error("Houve um erro. Tente novamente mais tarde.")
   }
 }
 
 function removeDrawerOptions() {
   drawerOptions.style.display = 'none'
 }
+
+function showDrawerOptions() {
+  drawerOptions.style.display = 'block'
+}
+
 
 function showResult() {
   // Seleciono a div que o resultado irá aparecer
@@ -103,7 +104,8 @@ function showResult() {
 
     // crio o elemento span
     const resultSpan = document.createElement("span")
-    resultSpan.textContent = `1º resultado`
+    drawCount++
+    resultSpan.textContent = `${drawCount}º resultado`
 
     // crio a div numbers
     const numbersDiv = document.createElement("div")
@@ -128,17 +130,23 @@ function showResult() {
       });
     }
 
+    // Criando a div do botão de replay
     const buttonDiv = document.createElement("div")
     buttonDiv.classList.add("btn")
     
+    // Criando o botão
     const button = document.createElement("button")
     button.textContent = "Sortear novamente"
+    button.id = "button"
 
+    // Cria a imagem de replay
     const replayIcon = document.createElement("img")
     replayIcon.src = "../assets/icons/replay.svg"
 
+    // Adiciona a imagem ao lado do texto do botão
     button.append(replayIcon)
 
+    // Adiciona o botão na div
     buttonDiv.append(button)
 
     // coloca os elementos na divTitle
@@ -153,6 +161,12 @@ function showResult() {
     // Insere o "drawerContainer" no local específico (após o comentário)
     const drawerOptions = document.querySelector('.drawer-options');
     drawerContainer.insertBefore(resultsDiv, drawerOptions.nextSibling);
+
+    // Remover a div ao clicar em sortear novamente
+    button.addEventListener("click", () => {
+      document.querySelector(".draw-result").remove()
+      showDrawerOptions()
+    })
 
   } catch (error) {
     console.log(error)

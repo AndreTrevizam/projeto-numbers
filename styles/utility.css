@@ -12,6 +12,10 @@
   display: none;
 }
 
+.mobile-only {
+  display: initial;
+}
+
 @media (width >= 80em) {
   .container {
     --max-width: 80rem;
@@ -19,5 +23,9 @@
 
   .desktop-only {
     display: initial;
+  }
+
+  .mobile-only {
+    display: none;
   }
 }

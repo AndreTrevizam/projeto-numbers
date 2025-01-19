@@ -150,6 +150,15 @@
   }
 }
 
+#drawer-container{
+  #about {
+    display: flex;
+    margin-top: 4.375rem;
+    justify-content: start;
+    margin-bottom: 5.625rem;
+  }
+}
+
 @media (width >= 80em) {
   #drawer {
     margin-top: 14.813rem;
