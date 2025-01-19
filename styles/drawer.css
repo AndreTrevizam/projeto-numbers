@@ -109,6 +109,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 4.375rem;
+    gap: .5rem;
 
     & h3 {
       color: var(--content-primary);
@@ -124,6 +126,7 @@
   }
 
   & .numbers {
+    margin-top: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,11 +136,17 @@
     font-weight: bold;
     line-height: 1.5;
     gap: 1.5rem;
+    max-width: 375px;
+    flex-wrap: wrap;
     
     & .number {
       display: flex;
       gap: 1rem;
     }
+  }
+
+  & .btn {
+    margin-top: 2.5rem;
   }
 }
 
@@ -149,6 +158,10 @@
       & p {
         font: var(--ph-lg);
       }
+    }
+
+    & .numbers {
+      max-width: 482px;
     }
   }
 }

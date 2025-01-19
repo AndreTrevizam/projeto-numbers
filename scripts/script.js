@@ -109,6 +109,7 @@ function showResult() {
     const numbersDiv = document.createElement("div")
     numbersDiv.classList.add("numbers")
 
+    // se o switch esta ativo, itera sobre o set senão itera sobre a array
     if (switcher.checked) {
       // Caso use o conjunto de números
       randomNumbersSet.forEach((num) => {
@@ -126,13 +127,25 @@ function showResult() {
         numbersDiv.appendChild(numDiv); // Adiciona a div ao container
       });
     }
+
+    const buttonDiv = document.createElement("div")
+    buttonDiv.classList.add("btn")
     
+    const button = document.createElement("button")
+    button.textContent = "Sortear novamente"
+
+    const replayIcon = document.createElement("img")
+    replayIcon.src = "../assets/icons/replay.svg"
+
+    button.append(replayIcon)
+
+    buttonDiv.append(button)
 
     // coloca os elementos na divTitle
     divTitle.append(heading, resultSpan)
 
     // coloco a div dentro da div principal
-    resultsDiv.append(divTitle, numbersDiv)
+    resultsDiv.append(divTitle, numbersDiv, buttonDiv)
 
     // mostro o elemento na tela
     document.body.appendChild(resultsDiv)
