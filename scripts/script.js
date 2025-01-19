@@ -141,7 +141,7 @@ function showResult() {
 
     // Cria a imagem de replay
     const replayIcon = document.createElement("img")
-    replayIcon.src = "../assets/icons/replay.svg"
+    replayIcon.src = "/assets/icons/replay.svg"
 
     // Adiciona a imagem ao lado do texto do botão
     button.append(replayIcon)
@@ -177,7 +177,10 @@ function showResult() {
 // Captura o clique do botão submit
 form.onsubmit = (event) => {
   event.preventDefault()
-
-  getNumbers(numberQuantity, secondInput, thirdInput)
-  showResult()
+  try {
+    getNumbers(numberQuantity, secondInput, thirdInput)
+    showResult()
+  } catch (error) {
+    alert(error)
+  }
 }
