@@ -141,7 +141,7 @@ function showResult() {
 
     // Cria a imagem de replay
     const replayIcon = document.createElement("img")
-    replayIcon.src = "/assets/icons/replay.svg"
+    replayIcon.src = "assets/icons/replay.svg"
 
     // Adiciona a imagem ao lado do texto do botão
     button.append(replayIcon)
@@ -169,8 +169,7 @@ function showResult() {
     })
 
   } catch (error) {
-    console.log(error)
-    alert("Houve um erro. Tente novamente mais tarde.")
+    throw new Error("Houve um erro. Tente novamente mais tarde.")
   }
 }
 
@@ -181,6 +180,6 @@ form.onsubmit = (event) => {
     getNumbers(numberQuantity, secondInput, thirdInput)
     showResult()
   } catch (error) {
-    alert(error)
+    throw new Error(error.message)
   }
 }
